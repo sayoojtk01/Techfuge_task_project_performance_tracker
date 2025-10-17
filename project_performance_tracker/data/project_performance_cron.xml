@@ -1,0 +1,12 @@
+<odoo>
+    <!--    Weekly cron job for performance calculation and send mail and external api also-->
+    <record id="ir_cron_project_performance_weekly" model="ir.cron">
+        <field name="name">Project Performance Weekly Report</field>
+        <field name="model_id" ref="project.model_project_project"/>
+        <field name="state">code</field>
+        <field name="code">model.cron_compute_and_report()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">weeks</field>
+        <field name="active">True</field>
+    </record>
+</odoo>

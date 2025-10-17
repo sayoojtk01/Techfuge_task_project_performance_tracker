@@ -1,0 +1,41 @@
+<odoo>
+    <template id="dashboard_template" owl="1">
+        <div class="o_dashboard">
+            <h2>Project Efficiency by Month</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Efficiency %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="state.monthlyEfficiency" t-as="m">
+                        <tr>
+                            <td><t t-esc="m.month"/></td>
+                            <td><t t-esc="m.efficiency"/></td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+
+            <h2>Top 5 Performing Employees</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Employee</th>
+                        <th>Total Weighted Hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="state.topEmployees" t-as="e">
+                        <tr>
+                            <td><t t-esc="e.name"/></td>
+                            <td><t t-esc="e.weighted_hours"/></td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+        </div>
+    </template>
+</odoo>

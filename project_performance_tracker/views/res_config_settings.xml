@@ -1,0 +1,24 @@
+<odoo>
+    <!--    Inherit project settings and add project performance condition also -->
+    <record id="view_res_config_settings_inherit_project_performance" model="ir.ui.view">
+        <field name="name">res.config.settings.inherit.project.performance</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="project.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <app name="project" position="inside">
+                <block title="Performance Management" id="performance_management"
+                       groups="project.group_project_manager">
+                    <setting id="performance_alert_threshold_setting" help="performance_alert_threshold">
+                        <field name="performance_alert_threshold"/>
+                    </setting>
+                    <setting id="alert_recipients_setting" help="alert_recipients">
+                        <field name="alert_recipients" widget="many2many_tags"/>
+                    </setting>
+                    <setting id="external_endpoint_setting" help="external_endpoint">
+                        <field name="external_endpoint"/>
+                    </setting>
+                </block>
+            </app>
+        </field>
+    </record>
+</odoo>

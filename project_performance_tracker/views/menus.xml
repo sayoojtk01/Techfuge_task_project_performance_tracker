@@ -1,0 +1,6 @@
+<odoo>
+    <!--    Menu for project performance-->
+    <menuitem id="menu_project_performance_reports" name="Project Performance" parent="project.menu_project_report"
+              action="action_project_performance_report_wizard" groups="group_project_performance_manager"/>
+
+</odoo>

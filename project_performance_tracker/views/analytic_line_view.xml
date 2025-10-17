@@ -1,0 +1,17 @@
+<odoo>
+    <!--    Inherit timesheet form and add custom field   -->
+    <record id="view_account_analytic_line_inherit" model="ir.ui.view">
+        <field name="name">account.analytic.line.form.inherit.performance</field>
+        <field name="model">account.analytic.line</field>
+        <field name="inherit_id" ref="hr_timesheet.hr_timesheet_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet/group" position="inside">
+                <group>
+                    <field name="is_billable"/>
+                    <field name="complexity_level"/>
+                    <field name="efficiency_weight" readonly="1"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

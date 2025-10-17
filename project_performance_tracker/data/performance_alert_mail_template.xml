@@ -1,0 +1,31 @@
+<odoo>
+    <!--    Mail template for project performance alert to users-->
+    <record id="mail_template_low_performance" model="mail.template">
+        <field name="name">Low Project Performance Alert</field>
+        <field name="email_from">{{(user.email_formatted or 'noreply@example.com')}}</field>
+        <field name="subject">Low Project Performance Alert - {{object.name}}</field>
+        <field name="model_id" ref="project.model_project_project"/>
+        <field name="body_html" type="html">
+            <div style="margin:0; padding:0; font-family:Arial, sans-serif;">
+
+                <p>
+                    The project '
+                    <b>
+                        <t t-out="object.name"/>
+                    </b>
+                    ' has a performance score of
+                    '
+                    <b>
+                        <t t-out="object.performance_score"/>
+                    </b>
+                    ' which is below the configured threshold.
+                </p>
+                <p>Please review the project and take necessary actions.</p>
+                <p>Thanks,
+                    <br/>
+                    <t t-out="object.company_id.name or 'Your Company'"/>
+                </p>
+            </div>
+        </field>
+    </record>
+</odoo>
